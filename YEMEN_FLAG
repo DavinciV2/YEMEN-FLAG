@@ -1,0 +1,47 @@
+import turtle
+import time
+
+def draw_stripe(myPen, color, y1, y2):
+    myPen.color(color)
+    myPen.pensize(2)
+    myPen.fillcolor(color)
+
+    myPen.penup()
+    myPen.goto(-180, y1)
+    myPen.pendown()
+    myPen.begin_fill()
+    myPen.goto(180, y1)
+    myPen.goto(180, y2)
+    myPen.goto(-180, y2)
+    myPen.goto(-180, y1)
+    myPen.end_fill()
+
+myPen = turtle.Turtle()
+myPen.shape("arrow")
+myPen.speed(10)
+
+window = turtle.Screen()
+window.bgcolor("#DDDDDD")
+
+# Draw the frame for the flag
+myPen.color("white")
+myPen.pensize(2)
+myPen.fillcolor("white")
+myPen.penup()
+myPen.goto(-180, -120)
+myPen.pendown()
+myPen.begin_fill()
+myPen.goto(180, -120)
+myPen.goto(180, 120)
+myPen.goto(-180, 120)
+myPen.goto(-180, -120)
+myPen.end_fill()
+
+# Draw the black stripe
+draw_stripe(myPen, "black", -120, -40)
+
+# Draw the red stripe
+draw_stripe(myPen, "red", 40, 120)
+
+myPen.hideturtle()
+time.sleep(1000)
